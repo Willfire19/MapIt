@@ -1,16 +1,15 @@
 require 'spec_helper'
 
 
-describe "Maps" do
+describe "Nodes" do
 
   let(:user) { FactoryGirl.create(:user) }
-  before { @map = user.maps.build(name: "Lorem Ipsum" ) }
+  let(:map) { FactoryGirl.create(:map, user: user) }
+  before { @node = map.nodes.build(title: "Lorem Ipsum" ) }
 
-  subject { @map }
+  subject { @node }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:user) }
-  it { should respond_to(:nodes) }
+  it { should respond_to(:title) }
 
   it { should be_valid }
 
@@ -22,13 +21,13 @@ describe "Maps" do
   	end
   end
 
-  describe "when user_id is not present" do
-    before { @map.user_id = nil }
+  describe "when map_id is not present" do
+    before { @node.map_id = nil }
     it { should_not be_valid }
   end
 
-  describe "with blank name" do
-    before { @map.name = " " }
+  describe "with blank title" do
+    before { @node.title = " " }
     it {should_not be_valid }
   end
 

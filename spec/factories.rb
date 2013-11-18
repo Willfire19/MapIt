@@ -7,13 +7,8 @@ FactoryGirl.define  do
 
 	end
 
-	factory :todo do
-		entry "Lorem ipsum"
-		list
-		assignedDate DateTime.new(2013, 1, 1)
-		dueDate DateTime.new(2013, 1, 1)
-		status "To Do"
-		difficulty 1
-		priority 1 
+	factory :map do
+		name "Lorem ipsum"
+		user
 	end
 end
